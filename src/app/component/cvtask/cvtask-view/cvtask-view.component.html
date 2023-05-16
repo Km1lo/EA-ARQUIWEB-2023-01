@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="container-lg" style="margin-top: 50px;">
+    <div style="text-align: center;">
+      <h1>Tarea</h1>
+    </div>
+  </div>
+ <ng-container>
+  <div class="container" style="text-align: center;">
+    <form [formGroup]="cvform">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput readonly placeholder="id" formControlName="id">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tarea</mat-label>
+        <input matInput readonly placeholder="cvtext" formControlName="cvtext">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput readonly [matDatepicker]="picker" formControlName="cvdate" max="cvmaxFecha" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Hora</mat-label>
+        <input matInput readonly placeholder="cvtime" formControlName="cvtime">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Recordatorio</mat-label>
+        <input matInput readonly placeholder="cvreminder" formControlName="cvreminder">
+      </mat-form-field>
+
+      <br>
+
+      <button mat-raised-button color="primary" routerLink="/cvusuario/tareas" class="mx-3">Regresar</button>
+
+    </form>
+  </div>
+</ng-container>
+
+
+
+</body>
+</html>

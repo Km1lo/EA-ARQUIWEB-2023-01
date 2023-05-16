@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="StyleDivMajorCamilo" style="margin-top: 50px;">
+    <div style="text-align: center;">
+      <h1>Lista de tareas</h1>
+    </div>
+
+
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="cvdataSource" style="background-color: #ffffff;">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> N° </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- cvtext Column -->
+        <ng-container matColumnDef="cvtext">
+          <th mat-header-cell *matHeaderCellDef> Tarea </th>
+          <td mat-cell *matCellDef="let element"> {{element.cvtext}} </td>
+        </ng-container>
+
+        <!-- Acciones1 Column -->
+        <ng-container matColumnDef="Acciones1">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" [routerLink]="['/cvusuario/view',element.id]">Ver</button>
+          </td>
+        </ng-container>
+
+        <!-- Acciones2 Column -->
+        <ng-container matColumnDef="Acciones2">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+
+            <button mat-raised-button color="primary" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="cvdisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: cvdisplayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"  style="background-color: #ffffff;"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div>
+
+</body>
+</html>
